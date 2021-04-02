@@ -28,7 +28,7 @@ export class PlayerService {
 
     //Edit player details
     async updatePlayer(playerId, playerDTO: PlayerDTO): Promise<Player> {
-        const updatedPlayer = await this.playerModel.findById(playerId, playerDTO, { new: true});
+        const updatedPlayer = await this.playerModel.findById(playerId, playerDTO, { new: true });
         return updatedPlayer;
     }
 

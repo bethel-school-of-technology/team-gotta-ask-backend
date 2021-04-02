@@ -39,14 +39,14 @@ export class PlayerController {
     }
 
     //Retrieve player list
-    @Get('players')
+    @Get('/players')
         async getAllPlayer(@Res() res) {
             const players = await this.playerService.getAllPlayer();
             return res.status(HttpStatus.OK).json(players);
     }
 
     //Fetch a particular player using Id
-    @Get('player/:playerId')
+    @Get('/:playerId')
     async getPlayer(@Res() res, @Param('playerId') playerId) {
         const player = await this.playerService.getPlayer(playerId);
         if (!player) throw new NotFoundException('Player does not exist!');
