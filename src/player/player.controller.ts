@@ -17,8 +17,8 @@ export class PlayerController {
     }
 
     // Update a player's details
-    @Put('/update')
-    async updatePlayer(@Res() res, @Query('playerId') playerId, @Body() playerDTO: PlayerDTO) {
+    @Put('/update/:playerId')
+    async updatePlayer(@Res() res, @Param('playerId') playerId, @Body() playerDTO: PlayerDTO) {
         const player = await this.playerService.updatePlayer(playerId, playerDTO);
         if (!player) throw new NotFoundException('Player does not exist!');
         return res.status(HttpStatus.OK).json({
@@ -28,8 +28,8 @@ export class PlayerController {
     }
 
     // Delete a player
-    @Delete('/delete')
-    async deletePlayer(@Res() res, @Query('playerId') playerId) {
+    @Delete('/delete/:playerId')
+    async deletePlayer(@Res() res, @Param('playerId') playerId) {
         const player = await this.playerService.deletePlayer(playerId);
         if (!player) throw new NotFoundException('Player does not exist');
         return res.status(HttpStatus.OK).json({
