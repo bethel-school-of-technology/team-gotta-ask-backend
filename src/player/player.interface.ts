@@ -1,9 +1,9 @@
 import { Document } from 'mongoose';
 
 export interface Player extends Document {
-    id: number;
-    name: string;
-    hp: number;
-    attack: number;
-    pageId: number;
+    readonly id: number;
+    readonly name: string;
+    readonly hp: number;
+    readonly attack: number;
+    readonly pageId: number;
 }
