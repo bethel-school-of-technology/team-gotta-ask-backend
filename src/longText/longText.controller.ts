@@ -6,7 +6,7 @@ export class LongTextController {
     constructor(private longTextService: LongTextService) { }
 
     //Retrieve text bodies list
-    @Get('/textBodies')
+    @Get('/text')
     async getAllTextBodies(@Res() res) {
         const textBodies = await this.longTextService.getAllTextBodies();
         return res.status(HttpStatus.OK).json(textBodies);
@@ -14,7 +14,7 @@ export class LongTextController {
 
     //Fetch a particular text body using title
     @Get('/:title')
-    async getEnemy(@Res() res, @Param('title') title) {
+    async getTextBody(@Res() res, @Param('title') title) {
         const text = await this.longTextService.getTextBody(title);
         if (!text) throw new NotFoundException('Text Body does not exist!');
         return res.status(HttpStatus.OK).json(text);

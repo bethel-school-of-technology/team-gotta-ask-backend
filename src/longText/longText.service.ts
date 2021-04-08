@@ -5,7 +5,7 @@ import { LongText } from './longText.interface';
 
 @Injectable()
 export class LongTextService {
-    constructor(@InjectModel('longText') private readonly longTextModel: Model<LongText>) { }
+    constructor(@InjectModel('LongText') private readonly longTextModel: Model<LongText>) { }
     
     // Fetch all text bodies
     async getAllTextBodies(): Promise<LongText[]> {
