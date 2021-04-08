@@ -4,4 +4,4 @@ export const EnemySchema = new mongoose.Schema({
     name: String,
     hp: Number,
     attack: Number,
-})
+}, { collection: 'enemies'})

@@ -6,7 +6,7 @@ export class EnemyController {
     constructor(private enemyService: EnemyService) { }
 
     //Retrieve enemy list
-    @Get('/enemies')
+    @Get('/all')
     async getAllEnemies(@Res() res) {
         const enemies = await this.enemyService.getAllEnemies();
         return res.status(HttpStatus.OK).json(enemies);

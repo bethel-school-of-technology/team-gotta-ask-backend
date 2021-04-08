@@ -6,4 +6,4 @@ export const PlayerSchema = new mongoose.Schema({
     hp: Number,
     attack: Number,
     pageId: Number
-})
+}, { collection: 'players'})

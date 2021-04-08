@@ -7,13 +7,13 @@ import { Enemy } from './enemy.interface';
 export class EnemyService {
     constructor(@InjectModel('Enemy') private readonly enemyModel: Model<Enemy>) { }
     
-    // Fetch all players
+    // Fetch all enemies
     async getAllEnemies(): Promise<Enemy[]> {
         const enemies = await this.enemyModel.find().exec();
         return enemies;
     }
 
-    // Get a single player
+    // Get a single enemy
     async getEnemy(enemyName): Promise<Enemy> {
         const enemy = await this.enemyModel.findOne({name: enemyName}).exec();
         return enemy;
