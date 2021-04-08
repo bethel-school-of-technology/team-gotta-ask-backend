@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { LongTextService } from './longText.service';
 import { LongTextController } from './longText.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LongTextSchema } from './longText.schema';
-import { LongTextService } from './longText.service';
+
 
 @Module({
   imports: [

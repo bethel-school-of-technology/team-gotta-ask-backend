@@ -14,8 +14,8 @@ export class LongTextService {
     }
 
     // Get a single text body
-    async getTextBody(longTextTitle): Promise<LongText> {
-        const longText = await this.longTextModel.findOne({title: longTextTitle}).exec();
+    async getTextBody(longTextPageId): Promise<LongText> {
+        const longText = await this.longTextModel.findOne({pageId: longTextPageId}).exec();
         return longText;
     }
 }

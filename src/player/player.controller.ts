@@ -39,7 +39,7 @@ export class PlayerController {
     }
 
     //Retrieve player list
-    @Get('/players')
+    @Get('/all')
         async getAllPlayer(@Res() res) {
             const players = await this.playerService.getAllPlayer();
             return res.status(HttpStatus.OK).json(players);
