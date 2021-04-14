@@ -15,7 +15,7 @@ export class PlayerController {
                 message: "Player has been created successfully",
                 player
             })
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return Res.status(HttpStatus.BAD_REQUEST).json({
                 message: "Player has not been created successfully",
@@ -46,11 +46,18 @@ export class PlayerController {
         })
     }
 
+    // Delete player list
+    @Delete('/deleteAll')
+    async deleteAllPlayer(@Res() res) {
+        const players = await this.playerService.deleteAllPlayers();
+        return res.status(HttpStatus.OK).json(players);
+    }
+
     //Retrieve player list
     @Get('/all')
-        async getAllPlayer(@Res() res) {
-            const players = await this.playerService.getAllPlayer();
-            return res.status(HttpStatus.OK).json(players);
+    async getAllPlayer(@Res() res) {
+        const players = await this.playerService.getAllPlayer();
+        return res.status(HttpStatus.OK).json(players);
     }
 
     //Fetch a particular player using Id

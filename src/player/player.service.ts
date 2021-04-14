@@ -7,7 +7,7 @@ import { PlayerDTO } from './player.dto';
 @Injectable()
 export class PlayerService {
     constructor(@InjectModel('Player') private readonly playerModel: Model<Player>) { }
-    
+
     // Fetch all players
     async getAllPlayer(): Promise<Player[]> {
         const players = await this.playerModel.find().exec();
@@ -36,5 +36,11 @@ export class PlayerService {
     async deletePlayer(playerId): Promise<any> {
         const deletedPlayer = await this.playerModel.findByIdAndRemove(playerId);
         return deletedPlayer;
+    }
+
+    //Delete all player
+    async deleteAllPlayers(): Promise<any> {
+        const deletedPlayers = await this.playerModel.deleteMany();
+        return deletedPlayers;
     }
 }
