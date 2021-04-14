@@ -13,9 +13,9 @@ export class EnemyController {
     }
 
     //Fetch a particular enemy using Id
-    @Get('/:enemyName')
-    async getEnemy(@Res() res, @Param('enemyName') enemyName) {
-        const enemy = await this.enemyService.getEnemy(enemyName);
+    @Get('/:enemyPageId')
+    async getEnemy(@Res() res, @Param('enemyPageId') enemyPageId) {
+        const enemy = await this.enemyService.getEnemy(enemyPageId);
         if (!enemy) throw new NotFoundException('Enemy does not exist!');
         return res.status(HttpStatus.OK).json(enemy);
     }

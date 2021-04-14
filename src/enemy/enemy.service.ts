@@ -14,8 +14,8 @@ export class EnemyService {
     }
 
     // Get a single enemy
-    async getEnemy(enemyName): Promise<Enemy> {
-        const enemy = await this.enemyModel.findOne({name: enemyName}).exec();
+    async getEnemy(enemyPageId): Promise<Enemy> {
+        const enemy = await this.enemyModel.findOne({pageId: enemyPageId}).exec();
         return enemy;
     }
 }
