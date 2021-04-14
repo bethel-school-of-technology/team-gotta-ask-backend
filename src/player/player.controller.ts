@@ -9,11 +9,19 @@ export class PlayerController {
     // Add a player
     @Post('/create')
     async addPlayer(@Res() Res, @Body() playerDTO: PlayerDTO) {
-        const player = await this.playerService.addPlayer(playerDTO);
-        return Res.status(HttpStatus.OK).json({
-            message: "Player has been created successfully",
-            player
-        })
+        try {
+            const player = await this.playerService.addPlayer(playerDTO);
+            return Res.status(HttpStatus.OK).json({
+                message: "Player has been created successfully",
+                player
+            })
+        } catch(e) {
+            console.log(e);
+            return Res.status(HttpStatus.BAD_REQUEST).json({
+                message: "Player has not been created successfully",
+                e
+            })
+        }
     }
 
     // Update a player's details
